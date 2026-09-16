@@ -80,6 +80,9 @@ button { cursor: pointer; }
 .bell i { position: absolute; right: -3px; top: -3px; display: grid; place-items: center; width: 13px; height: 13px; border-radius: 50%; background: #ed354d; color: white; font-size: 8px; font-style: normal; }
 .home-header .brand { margin: 0 auto; }
 .home-header .brand img { mix-blend-mode: normal; }
+.quick-menu { position: absolute; top: 72px; right: 14px; z-index: 4; display: flex; flex-direction: column; gap: 4px; min-width: 118px; padding: 7px; border: 1px solid #dce3eb; border-radius: 9px; background: #fff; box-shadow: 0 8px 20px #16375b24; }
+.quick-menu button { border: 0; border-radius: 6px; padding: 7px 10px; background: transparent; color: #243956; text-align: right; font-size: 11px; }
+.quick-menu button:hover, .quick-menu button:focus-visible { background: #edf4ff; outline: 0; }
 .search { height: 42px; display: flex; align-items: center; gap: 7px; padding: 0 11px; border: 1px solid #dce3eb; border-radius: 10px; background: white; color: #8290a3; }
 .search svg { width: 18px; }
 .search input { min-width: 0; flex: 1; border: 0; outline: 0; text-align: right; color: #233d63; font-size: 11px; }
@@ -91,7 +94,10 @@ button { cursor: pointer; }
 .hero-copy button { align-self: flex-end; margin-top: 12px; padding: 6px 13px; border: 0; border-radius: 7px; background: #f6b915; color: #172b4e; font-size: 10px; font-weight: 800; }
 .hero-copy button svg { width: 12px; vertical-align: middle; }
 .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 13px 0 18px; }
-.category { min-height: 69px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 10px; background: #fff; box-shadow: 0 5px 13px #16375b12; color: #243956; font-size: 9px; font-weight: 700; }
+.category { min-height: 69px; display: flex; transition: transform .18s, box-shadow .18s; }
+.category:hover, .category:focus-visible, .category.selected { transform: translateY(-2px); box-shadow: 0 7px 16px #0755bb25; outline: 2px solid #0755bb33; outline-offset: 1px; }
+.empty-state { margin: 18px 0; color: #7a899d; text-align: center; font-size: 12px; }
+.category { flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 10px; background: #fff; box-shadow: 0 5px 13px #16375b12; color: #243956; font-size: 9px; font-weight: 700; }
 .category-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; }
 .category-icon svg { width: 21px; height: 21px; }
 .green { color: #1c9b5b; background: #e5f5eb; }.red { color: #dd4650; background: #fce8e9; }.gold { color: #d89f10; background: #fff3d1; }.blue { color: #2e77cd; background: #e7f1ff; }.purple { color: #7531bb; background: #f0e5ff; }.cyan { color: #129aac; background: #e0f7f9; }.orange { color: #ed8c24; background: #fff0df; }.teal { color: #2d8f9a; background: #e3f6f4; }

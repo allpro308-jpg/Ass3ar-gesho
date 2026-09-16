@@ -1,0 +1,9 @@
+{
+  "status": "partially_resolved",
+  "items": [
+    {"id":"TD-001","area":"backend","status":"open","note":"Authentication and persistence are frontend-only; use a real auth/database integration before production."},
+    {"id":"TD-002","area":"testing","status":"open","note":"No automated unit or integration tests are present."},
+    {"id":"TD-003","area":"content","status":"open","note":"News and image URLs are demo content and should be replaced by a maintained data source."},
+    {"id":"TD-004","area":"accessibility","status":"improved","note":"Added labels, alert roles, button types, and menu expanded state."}
+  ]
+}
