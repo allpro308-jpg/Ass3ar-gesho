@@ -1,0 +1,1 @@
+{"breakpoints":["<=450px",">=700px"],"testedDesignTargets":[320,360,375,390,414,480,768,1024,1280,1440],"implemented":"phone shell scales; mobile full viewport; desktop centered","risks":["fixed min-height 680px may exceed very short viewports","desktop scale transform may reduce readable size"]}

@@ -1,0 +1,1 @@
+{"build":"PASS","runtime":"PENDING_BROWSER_CHECK","flows":["splash timeout","login validation","signup validation","home search empty state","home category selection"],"known_environment_issue":"browser preview may be unavailable","buildCommand":"pnpm build","routeOutput":["/","/_not-found"]}

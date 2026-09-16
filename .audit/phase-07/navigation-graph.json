@@ -1,0 +1,1 @@
+{"edges":[{"from":"splash","action":"timeout","to":"login"},{"from":"login","action":"create account","to":"signup"},{"from":"login","action":"valid submit/google","to":"home"},{"from":"signup","action":"valid submit/social","to":"home"},{"from":"signup","action":"back","to":"login"},{"from":"home","action":"bottom nav","to":"home"}]}

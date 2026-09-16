@@ -1,0 +1,1 @@
+{"risks":["remote images are not next/image optimized","Google font loaded remotely","all screens in one client bundle"],"positive":["small static dataset","no polling","splash timer cleanup","no unbounded effects"],"priority":"medium"}

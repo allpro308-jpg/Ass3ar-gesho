@@ -1,0 +1,1 @@
+{"status":"PARTIAL","contentSources":{"news":"hardcoded demo content","branding":"external blob assets","auth":"none"},"issues":["الأخبار ليست من API","Google/Facebook لا ينفذان OAuth","تسجيل الدخول لا ينشئ جلسة"]}

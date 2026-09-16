@@ -1,0 +1,1 @@
+{"components":[{"name":"PhoneShell","file":"app/page.tsx","used":true},{"name":"TextField","file":"app/page.tsx","used":true},{"name":"Brand","file":"app/page.tsx","used":true},{"name":"AuthHeader","file":"app/page.tsx","used":true},{"name":"Splash/Login/Signup/Home","file":"app/page.tsx","used":true}],"risk":"الصفحة ملف واحد كبير؛ فصل المكونات تحسين لاحق منخفض الخطورة."}

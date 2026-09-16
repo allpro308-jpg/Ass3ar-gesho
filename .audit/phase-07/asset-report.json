@@ -1,0 +1,1 @@
+{"assets":[{"name":"logo","source":"external blob","used":true},{"name":"splash","source":"external blob","used":true},{"name":"iron","source":"external blob","used":true},{"name":"news images","source":"Unsplash","used":true}],"risks":["external image availability and CORS/cache dependency","no local optimized asset pipeline"]}

@@ -1,0 +1,1 @@
+{"pages":[{"route":"/","status":"NOT_DETECTED","basis":"لا توجد requests أو effects غير منتهية؛ Splash timer له cleanup."}],"limitations":"لم يتم قياس CPU أو memory في بيئة متصفح متاحة."}

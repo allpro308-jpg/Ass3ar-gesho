@@ -1,0 +1,1 @@
+{"R0":["fix Home prop mismatch","add input aria-labels","preserve empty state"],"R1":["create route-based auth/home pages","replace external images with local optimized assets"],"R3":["add real auth/database","add real news/prices API","implement legal/settings destinations"],"blockedBy":"integration and product data decisions"}

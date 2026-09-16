@@ -1,0 +1,1 @@
+{"routes":[{"path":"/","directOpen":true,"deepLink":true,"status":"WORKING"}],"missing":["/login","/signup","/home","/404"],"note":"التنقل داخلي عبر React state."}

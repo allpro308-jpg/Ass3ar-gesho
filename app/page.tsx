@@ -65,7 +65,7 @@ function Splash({ onDone }: { onDone: () => void }) {
 
 function TextField({ icon, placeholder, type = 'text', value, onChange, password = false }: { icon: React.ReactNode; placeholder: string; type?: string; value: string; onChange: (v: string) => void; password?: boolean }) {
   const [visible, setVisible] = useState(false)
-  return <label className="field"><span className="field-icon">{icon}</span><input type={password && !visible ? 'password' : type} placeholder={placeholder} value={value} onChange={e => onChange(e.target.value)} dir="rtl" />{password ? <button type="button" className="field-action" onClick={() => setVisible(!visible)} aria-label={visible ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}>{visible ? <EyeOff /> : <Eye />}</button> : null}</label>
+  return <label className="field"><span className="field-icon" aria-hidden="true">{icon}</span><input aria-label={placeholder} type={password && !visible ? 'password' : type} placeholder={placeholder} value={value} onChange={e => onChange(e.target.value)} dir="rtl" />{password ? <button type="button" className="field-action" onClick={() => setVisible(!visible)} aria-label={visible ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}>{visible ? <EyeOff /> : <Eye />}</button> : null}</label>
 }
 
 function AuthHeader({ title, subtitle }: { title: string; subtitle: string }) { return <><Brand /><h1>{title}</h1><p className="subtitle">{subtitle}</p></> }
@@ -97,5 +97,5 @@ export default function Page() {
   if (screen === 'splash') return <Splash onDone={() => setScreen('login')} />
   if (screen === 'login') return <Login goSignup={() => setScreen('signup')} goHome={() => setScreen('home')} />
   if (screen === 'signup') return <Signup goLogin={() => setScreen('login')} goHome={() => setScreen('home')} />
-  return <Home onNavigate={next => setScreen(next)} />
+  return <Home />
 }

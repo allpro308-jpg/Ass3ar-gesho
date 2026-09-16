@@ -1,0 +1,1 @@
+{"criticalFlows":[{"name":"first visit","steps":["splash","login"]},{"name":"login validation","steps":["login","error or home"]},{"name":"signup validation","steps":["login","signup","error or home"]},{"name":"news search","steps":["home","query","results or empty"]}]}

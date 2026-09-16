@@ -1,0 +1,1 @@
+{"sharedPatterns":["Brand","TextField","PhoneShell","primary-btn","social-btn"],"nearDuplicates":["category button and bottom-nav button both use custom button styling"],"recommendation":"فصل Home/Auth/Splash إلى ملفات بعد إضافة backend لتقليل blast radius."}
