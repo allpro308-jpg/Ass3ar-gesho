@@ -101,7 +101,7 @@ function PostDetails({ post, onBack, onSection }: { post: Post; onBack: () => vo
   return <PhoneShell><main className="reading-screen"><button type="button" className="reading-back" onClick={onBack}><ArrowRight /> العودة إلى {post.section}</button><div className="reading-cover"><img src={post.images[0]} alt="" /><span>{post.section}</span></div><article className="reading-article"><p className="reading-kicker">{post.tag} · {post.date}</p><h1>{post.title}</h1><p className="reading-summary">{post.summary}</p>{post.content.map((paragraph, index) => <div key={paragraph}><h2>{index === 0 ? 'الصورة الكاملة' : index === 1 ? 'ما الذي يعنيه ذلك؟' : index === 2 ? 'خطوات عملية' : 'خلاصة مهمة'}</h2><p>{paragraph}</p>{index < post.images.length && <img src={post.images[index]} alt="" className="reading-inline-image" />}</div>)}</article><button type="button" className="reading-section-link" onClick={() => onSection(post.section)}>استكشف المزيد من قسم {post.section}</button></main></PhoneShell>
 }
 
-function Home({ onOpenPost }: { onOpenPost: (post: Post) => void }) {
+function ContentHome({ onOpenPost }: { onOpenPost: (post: Post) => void }) {
   const [activeTab, setActiveTab] = useState('الرئيسية')
   const [query, setQuery] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -122,5 +122,5 @@ export default function Page() {
   if (screen === 'login') return <Login goSignup={() => setScreen('signup')} goHome={goHome} />
   if (screen === 'signup') return <Signup goLogin={() => setScreen('login')} goHome={goHome} />
   if (screen === 'post' && activePost) return <PostDetails post={activePost} onBack={() => { window.history.back() }} onSection={goSection} />
-  return <Home onOpenPost={openPost} />
+  return <ContentHome onOpenPost={openPost} />
 }
