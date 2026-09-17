@@ -46,7 +46,8 @@ const categories = [
   { label: 'المزيد', icon: <MoreHorizontal />, color: 'teal' },
 ]
 
-type Post = { id: string; title: string; tag: string; section: string; date: string; images: string[]; summary: string; content: string[] }
+type News = { id: string; title: string; tag: string; section: string; date: string; images: string[]; summary: string; content: string[] }
+type NewsCard = Pick<News, 'id' | 'title' | 'tag' | 'section' | 'date'> & { image: string }
 
 const postImages = {
   road: splashImage,
@@ -55,13 +56,13 @@ const postImages = {
   city: splashImage,
 }
 
-const posts: Post[] = [
+const posts: News[] = [
   { id: 'steel-market', title: 'ارتفاع جديد في أسعار الحديد اليوم في الأسواق المحلية', tag: 'أسعار', section: 'الأسعار', date: 'منذ 3 ساعات', images: [postImages.steel, postImages.city], summary: 'قراءة تحليلية لحركة سوق الحديد والعوامل التي تقود تغير الأسعار.', content: ['شهدت أسواق مواد البناء اليوم حركة ملحوظة في أسعار الحديد، وسط متابعة واسعة من التجار والمستهلكين وأصحاب المشروعات الصغيرة. ولا تأتي هذه الحركة بمعزل عن المشهد الاقتصادي؛ فتكلفة النقل والطاقة وتوافر الخامات كلها عناصر تتداخل لتحديد السعر النهائي الذي يصل إلى السوق المحلي.', 'يهم القارئ أن يفرّق بين السعر المعلن والسعر الفعلي عند الشراء. فقد تتغير القيمة بحسب المحافظة، وحجم الطلب، وموعد التسليم، كما قد تضيف مصروفات النقل والتخزين فرقًا واضحًا بين عرض وآخر. لذلك يُنصح بمقارنة أكثر من مصدر قبل اتخاذ قرار الشراء، والاحتفاظ بفاتورة واضحة تتضمن النوع والوزن وتاريخ التوريد.', 'على المدى القريب، يتوقع المتابعون استمرار التذبذب المحدود مع تحسن حركة المشروعات وتغير تكاليف التشغيل. أما القرار الأذكى للمستهلك فهو بناء خطة شراء مرنة، وتجنب التخزين العشوائي، ومتابعة تحديثات الأسعار بصورة دورية بدل الاعتماد على معلومة قديمة متداولة عبر الرسائل.', 'هذه القراءة معلوماتية وليست توصية مالية. تُحدّث بيانات السوق باستمرار، وقد تختلف الأرقام بين الموردين. استخدم صفحة الأسعار لمقارنة آخر التحديثات، وشارك المنشور مع من يحتاج إلى رؤية أكثر وضوحًا قبل بدء مشروعه.'] },
   { id: 'education-calendar', title: 'وزارة التعليم تعلن جدول امتحانات الثانوية العامة 2026', tag: 'تعليم', section: 'التعليم', date: 'منذ ساعتين', images: [postImages.school, postImages.city], summary: 'دليل هادئ لتنظيم المذاكرة وفهم الجدول دون ضغط أو ارتباك.', content: ['مع إعلان جدول امتحانات الثانوية العامة يبدأ موسم جديد من التخطيط، وتتحول الأيام المتبقية إلى وحدات صغيرة يمكن إدارتها بدل النظر إليها كفترة طويلة ومقلقة. أفضل نقطة بداية هي كتابة المواد بالترتيب، ثم تحديد المواد التي تحتاج إلى مراجعة عميقة والمواد التي يكفيها تدريب يومي قصير.', 'لا يعتمد الاستعداد الجيد على عدد ساعات الجلوس فقط. فالجلسة المركزة التي تنتهي باختبار قصير وتصحيح الأخطاء أكثر فائدة من قراءة متواصلة بلا قياس. اجعل لكل يوم هدفًا قابلًا للإنجاز، واترك مساحة للنوم والراحة؛ لأن استعادة التركيز جزء من المذاكرة وليست وقتًا ضائعًا.', 'قبل كل امتحان، جهّز الأدوات والمكان وراجع تعليمات الحضور. وفي يوم الاختبار اقرأ الأسئلة كاملة قبل توزيع الوقت، وابدأ بما تعرفه لتبني ثقة هادئة، ثم عد إلى الأسئلة التي تحتاج إلى تفكير أطول. التنظيم يقلل المفاجآت ويمنح الطالب قدرة أفضل على إظهار ما تعلمه.', 'تابع أي تحديث رسمي من مصادر الوزارة أو المدرسة، وتجنب الاعتماد على صور مجهولة المصدر. هذا المنشور يقدّم طريقة للتعامل مع الجدول، بينما تبقى المواعيد النهائية والقرارات الرسمية مرجعها الجهة التعليمية المختصة.'] },
   { id: 'desert-road', title: 'حالة الطقس على الطريق الصحراوي تستدعي عدة احتياطات', tag: 'حوادث', section: 'الأخبار', date: 'منذ 15 دقيقة', images: [postImages.road, postImages.city], summary: 'إرشادات عملية للسفر الآمن عند تغير الرؤية أو نشاط الرياح.', content: ['تتغير حالة الطريق الصحراوي بسرعة عند نشاط الرياح أو تشكل الشبورة، ولذلك يحتاج المسافر إلى قرار مبكر قبل التحرك لا إلى رد فعل متأخر أثناء القيادة. راجع النشرات الرسمية، وافحص الإطارات والإضاءة، وتأكد من شحن الهاتف ووجود وسيلة تواصل احتياطية قبل الخروج.', 'عند انخفاض الرؤية، خفف السرعة تدريجيًا واترك مسافة أمان أكبر من المعتاد. لا تستخدم إشارات الانتظار في منتصف الطريق إلا عند الضرورة، وتجنب الوقوف المفاجئ في المسارات السريعة. إذا أصبحت القيادة غير آمنة، ابحث عن مكان توقف قانوني وواضح بعيدًا عن حركة المركبات.', 'تساعد القيادة الهادئة على حماية السائق ومن معه، كما تمنح الآخرين وقتًا كافيًا للتصرف. لا تنشغل بالهاتف أو التصوير، ولا تتعامل مع تحذيرات الطقس باعتبارها مبالغة؛ فدقائق التأخير أقل تكلفة من مجازفة قد تغير الرحلة كاملة.', 'نذكّر بأن هذه إرشادات عامة وليست بديلًا عن تعليمات المرور أو الجهات المختصة. تحقق من آخر تحديث قبل السفر، وأبلغ عن أي عائق واضح عبر القنوات الرسمية دون الاقترا�� من موقع الخطر.'] },
 ]
 
-const news = posts.map(({ id, title, tag, section, date, images }) => ({ id, title, tag, section, date, image: images[0] }))
+const news: NewsCard[] = posts.map(({ id, title, tag, section, date, images }) => ({ id, title, tag, section, date, image: images[0] }))
 
 function Brand({ compact = false }: { compact?: boolean }) {
   return <div className={`brand ${compact ? 'brand-compact' : ''}`}><img src={logo} alt="شعار أسعار جيشو" /><span><b>أسعار</b> <strong>جيشو</strong></span></div>
@@ -97,11 +98,11 @@ function Signup({ goLogin, goHome }: { goLogin: () => void; goHome: () => void }
   return <PhoneShell><main className="auth-screen signup-screen"><AuthHeader title="إنشاء حساب جديد" subtitle="انضم إلى آلاف المستخدمين الآن" /><form onSubmit={submit} noValidate><TextField icon={<UserRound />} placeholder="الاسم الكامل" value={form.name} onChange={set('name')} /><TextField icon={<Mail />} placeholder="البريد الإلكتروني" value={form.email} onChange={set('email')} type="email" /><TextField icon={<Phone />} placeholder="رقم الهاتف" value={form.phone} onChange={set('phone')} type="tel" /><TextField icon={<LockKeyhole />} placeholder="كلمة المرور" password value={form.password} onChange={set('password')} /><TextField icon={<LockKeyhole />} placeholder="تأكيد كلمة المرور" password value={form.confirm} onChange={set('confirm')} />{error && <p className="form-error" role="alert">{error}</p>}<button className="primary-btn" type="submit">إنشاء حساب</button></form><div className="or"><span>أو التسجيل باستخدام</span></div><div className="social-row"><button type="button" className="social-btn" onClick={goHome}><span className="google">G</span> Google</button><button type="button" className="social-btn" onClick={goHome}><span className="facebook">f</span> Facebook</button></div><p className="terms">بالتسجيل، أنت توافق على<br /><button type="button" className="link">شروط الاستخدام</button> و <button type="button" className="link">سياسة الخصوصية</button></p><button type="button" className="back-link" onClick={goLogin}><ArrowRight /> العودة لتسجيل الدخول</button></main></PhoneShell>
 }
 
-function PostDetails({ post, onBack, onSection }: { post: Post; onBack: () => void; onSection: (section: string) => void }) {
+function PostDetails({ post, onBack, onSection }: { post: News; onBack: () => void; onSection: (section: string) => void }) {
   return <PhoneShell><main className="reading-screen"><button type="button" className="reading-back" onClick={onBack}><ArrowRight /> العودة إلى {post.section}</button><div className="reading-cover"><img src={post.images[0]} alt="" /><span>{post.section}</span></div><article className="reading-article"><p className="reading-kicker">{post.tag} · {post.date}</p><h1>{post.title}</h1><p className="reading-summary">{post.summary}</p>{post.content.map((paragraph, index) => <div key={paragraph}><h2>{index === 0 ? 'الصورة الكاملة' : index === 1 ? 'ما الذي يعنيه ذلك؟' : index === 2 ? 'خطوات عملية' : 'خلاصة مهمة'}</h2><p>{paragraph}</p>{index < post.images.length && <img src={post.images[index]} alt="" className="reading-inline-image" />}</div>)}</article><button type="button" className="reading-section-link" onClick={() => onSection(post.section)}>استكشف المزيد من قسم {post.section}</button></main></PhoneShell>
 }
 
-function ContentHome({ onOpenPost }: { onOpenPost: (post: Post) => void }) {
+function ContentHome({ onOpenPost }: { onOpenPost: (post: News) => void }) {
   const [activeTab, setActiveTab] = useState('الرئيسية')
   const [query, setQuery] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -113,9 +114,9 @@ function ContentHome({ onOpenPost }: { onOpenPost: (post: Post) => void }) {
 
 export default function Page() {
   const [screen, setScreen] = useState<'splash' | 'login' | 'signup' | 'home' | 'post'>('splash')
-  const [activePost, setActivePost] = useState<Post | null>(null)
+  const [activePost, setActivePost] = useState<News | null>(null)
   const goHome = () => { window.history.pushState({}, '', '/'); setActivePost(null); setScreen('home') }
-  const openPost = (post: Post) => { window.history.pushState({}, '', `/section/${encodeURIComponent(post.section)}/post/${post.id}`); setActivePost(post); setScreen('post') }
+  const openPost = (post: News) => { window.history.pushState({}, '', `/section/${encodeURIComponent(post.section)}/post/${post.id}`); setActivePost(post); setScreen('post') }
   const goSection = (section: string) => { window.history.pushState({}, '', `/section/${encodeURIComponent(section)}`); setActivePost(null); setScreen('home') }
   useEffect(() => { const path = window.location.pathname; const postId = path.match(/\/post\/([^/]+)/)?.[1]; const initialPost = postId ? posts.find(post => post.id === postId) : null; if (initialPost) { setActivePost(initialPost); setScreen('post') } else if (path.startsWith('/section/')) setScreen('home'); const onPop = () => { const currentId = window.location.pathname.match(/\/post\/([^/]+)/)?.[1]; const currentPost = currentId ? posts.find(post => post.id === currentId) : null; setActivePost(currentPost || null); setScreen(currentPost ? 'post' : 'home') }; window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop) }, [])
   if (screen === 'splash') return <Splash onDone={() => setScreen('login')} />
