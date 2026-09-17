@@ -1,0 +1,11 @@
+[
+  {
+    "change":"Remove stale selectedNews implementation and rename Home to ContentHome",
+    "files":["app/page.tsx","app/globals.css"],
+    "tests":["grep selectedNews","pnpm build","deep-link browser check"],
+    "failures":[],
+    "rollback":"revert the two application files only",
+    "rootCause":"stale client chunk referenced a deleted state variable",
+    "resolution":"removed all stale references and changed component identity to invalidate old chunk"
+  }
+]

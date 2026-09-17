@@ -1,0 +1,10 @@
+{
+  "status": "PARTIALLY_VERIFIED",
+  "project": {"framework":"Next.js 16.3.3","language":"TypeScript/React","runtime":"Node.js","packageManager":"pnpm","architecture":"single App Router page with state-based screens","entry":"app/page.tsx"},
+  "modules": [{"id":"auth-ui","path":"app/page.tsx","risk":"medium"},{"id":"content-ui","path":"app/page.tsx","risk":"high"},{"id":"design-system","path":"app/globals.css","risk":"medium"}],
+  "screens":["splash","login","signup","home","post-details"],
+  "routes":["/","/section/:section","/section/:section/post/:id"],
+  "services":[],"apis":[],"database":"UNKNOWN / not connected","authentication":"UI-only prototype","storage":"external blob URLs","tests":[],
+  "criticality":"content navigation and rendering",
+  "known_constraint":"Preview may serve stale client chunks; production deployment must be validated separately"
+}
