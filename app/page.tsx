@@ -3,6 +3,19 @@
 import { useEffect, useState } from 'react'
 
 const APP_BUILD = 'content-navigation-2026-09-17'
+
+function getPublicationDate() {
+  const today = new Date()
+  const year = today.getFullYear()
+  const month = String(today.getMonth() + 1).padStart(2, '0')
+  const day = String(today.getDate()).padStart(2, '0')
+  return { year, month, day }
+}
+
+function getPostPath(post: News) {
+  const date = getPublicationDate()
+  return `/section/${encodeURIComponent(post.section)}/${date.year}/${date.month}/${date.day}/post/${post.id}`
+}
 import {
   ArrowLeft,
   ArrowRight,
@@ -128,7 +141,7 @@ export default function Page() {
   const [screen, setScreen] = useState<'splash' | 'login' | 'signup' | 'home' | 'post'>('splash')
   const [activePost, setActivePost] = useState<News | null>(null)
   const goHome = () => { window.history.pushState({}, '', '/'); setActivePost(null); setScreen('home') }
-  const openPost = (post: News) => { window.history.pushState({}, '', `/section/${encodeURIComponent(post.section)}/post/${post.id}`); setActivePost(post); setScreen('post') }
+  const openPost = (post: News) => { window.history.pushState({}, '', getPostPath(post)); setActivePost(post); setScreen('post') }
   const goSection = (section: string) => { window.history.pushState({}, '', `/section/${encodeURIComponent(section)}`); setActivePost(null); setScreen('home') }
   useEffect(() => { const path = window.location.pathname; const postId = path.match(/\/post\/([^/]+)/)?.[1]; const initialPost = postId ? allPosts.find(post => post.id === postId) : null; if (initialPost) { setActivePost(initialPost); setScreen('post') } else if (path.startsWith('/section/')) setScreen('home'); const onPop = () => { const currentId = window.location.pathname.match(/\/post\/([^/]+)/)?.[1]; const currentPost = currentId ? posts.find(post => post.id === currentId) : null; setActivePost(currentPost || null); setScreen(currentPost ? 'post' : 'home') }; window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop) }, [])
   if (screen === 'splash') return <Splash onDone={() => setScreen('login')} />
